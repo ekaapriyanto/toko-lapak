@@ -2,32 +2,309 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --radius: 0.5rem;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+.colorBlue {
+  background-color: #00c4c0;
+}
+
+.title-menu {
+  background-color: #fff;
+  padding: 15px 20px;
+  letter-spacing: 4px;
+  font-weight: 600;
+  margin: 15px 0 15px;
+}
+
+.sf-box {
+  background-color: rgb(255, 255, 255);
+  padding: 5px 5px;
+}
+
+.sf-title {
+  padding-top: 10px;
+  letter-spacing: 4px;
+  font-weight: 600;
+}
+
+.nasa-title {
+  margin-bottom: 8px;
+  position: relative;
+  clear: both;
+  font-size: 110%;
+}
+
+.nasa-title .nasa-heading-title {
+  margin-bottom: .1em;
+  font-weight: 800;
+}
+
+/* From Uiverse.io by Nawsome */ 
+.pl {
+  width: 6em;
+  height: 6em;
+}
+
+.pl__ring {
+  animation: ringA 2s linear infinite;
+}
+
+.pl__ring--a {
+  stroke: #f42f25;
+}
+
+.pl__ring--b {
+  animation-name: ringB;
+  stroke: #f49725;
+}
+
+.pl__ring--c {
+  animation-name: ringC;
+  stroke: #255ff4;
+}
+
+.pl__ring--d {
+  animation-name: ringD;
+  stroke: #f42582;
+}
+
+/* Animations */
+@keyframes ringA {
+  from, 4% {
+    strokeDasharray: 0 660;
+    strokeWidth: 20;
+    stroke-dashoffset: -330;
+  }
+
+  12% {
+    strokeDasharray: 60 600;
+    strokeWidth: 30;
+    stroke-dashoffset: -335;
+  }
+
+  32% {
+    strokeDasharray: 60 600;
+    strokeWidth: 30;
+    stroke-dashoffset: -595;
+  }
+
+  40%, 54% {
+    strokeDasharray: 0 660;
+    strokeWidth: 20;
+    stroke-dashoffset: -660;
+  }
+
+  62% {
+    strokeDasharray: 60 600;
+    strokeWidth: 30;
+    stroke-dashoffset: -665;
+  }
+
+  82% {
+    strokeDasharray: 60 600;
+    strokeWidth: 30;
+    stroke-dashoffset: -925;
+  }
+
+  90%, to {
+    strokeDasharray: 0 660;
+    strokeWidth: 20;
+    stroke-dashoffset: -990;
+  }
+}
+
+@keyframes ringB {
+  from, 12% {
+    strokeDasharray: 0 220;
+    strokeWidth: 20;
+    stroke-dashoffset: -110;
+  }
+
+  20% {
+    strokeDasharray: 20 200;
+    strokeWidth: 30;
+    stroke-dashoffset: -115;
+  }
+
+  40% {
+    strokeDasharray: 20 200;
+    strokeWidth: 30;
+    stroke-dashoffset: -195;
+  }
+
+  48%, 62% {
+    strokeDasharray: 0 220;
+    strokeWidth: 20;
+    stroke-dashoffset: -220;
+  }
+
+  70% {
+    strokeDasharray: 20 200;
+    strokeWidth: 30;
+    stroke-dashoffset: -225;
+  }
+
+  90% {
+    strokeDasharray: 20 200;
+    strokeWidth: 30;
+    stroke-dashoffset: -305;
+  }
+
+  98%, to {
+    strokeDasharray: 0 220;
+    strokeWidth: 20;
+    stroke-dashoffset: -330;
+  }
+}
+
+@keyframes ringC {
+  from {
+    strokeDasharray: 0 440;
+    strokeWidth: 20;
+    stroke-dashoffset: 0;
+  }
+
+  8% {
+    strokeDasharray: 40 400;
+    strokeWidth: 30;
+    stroke-dashoffset: -5;
+  }
+
+  28% {
+    strokeDasharray: 40 400;
+    strokeWidth: 30;
+    stroke-dashoffset: -175;
+  }
+
+  36%, 58% {
+    strokeDasharray: 0 440;
+    strokeWidth: 20;
+    stroke-dashoffset: -220;
+  }
+
+  66% {
+    strokeDasharray: 40 400;
+    strokeWidth: 30;
+    stroke-dashoffset: -225;
+  }
+
+  86% {
+    strokeDasharray: 40 400;
+    strokeWidth: 30;
+    stroke-dashoffset: -395;
+  }
+
+  94%, to {
+    strokeDasharray: 0 440;
+    strokeWidth: 20;
+    stroke-dashoffset: -440;
+  }
+}
+
+@keyframes ringD {
+  from, 8% {
+    strokeDasharray: 0 440;
+    strokeWidth: 20;
+    stroke-dashoffset: 0;
+  }
+
+  16% {
+    strokeDasharray: 40 400;
+    strokeWidth: 30;
+    stroke-dashoffset: -5;
+  }
+
+  36% {
+    strokeDasharray: 40 400;
+    strokeWidth: 30;
+    stroke-dashoffset: -175;
+  }
+
+  44%, 50% {
+    strokeDasharray: 0 440;
+    strokeWidth: 20;
+    stroke-dashoffset: -220;
+  }
+
+  58% {
+    strokeDasharray: 40 400;
+    strokeWidth: 30;
+    stroke-dashoffset: -225;
+  }
+
+  78% {
+    strokeDasharray: 40 400;
+    strokeWidth: 30;
+    stroke-dashoffset: -395;
+  }
+
+  86%, to {
+    strokeDasharray: 0 440;
+    strokeWidth: 20;
+    stroke-dashoffset: -440;
   }
 }
