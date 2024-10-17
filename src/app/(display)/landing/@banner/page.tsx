@@ -23,12 +23,12 @@ export default function Banner() {
       <Carousel className="w-full mt-5">
         <CarouselContent>
           {banners.length > 0 &&
-            banners.map((banners: any) => (
-              <CarouselItem key={banners.id}>
+            banners.map((item: any) => (
+              <CarouselItem key={item.id}>
                 <div className="p-1">
                   <CardContent className="flex items-center justify-center">
                     <Image
-                      src={banners.image}
+                      src={item.image}
                       alt="banner"
                       width={900}
                       height={200}

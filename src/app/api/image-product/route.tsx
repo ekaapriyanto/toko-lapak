@@ -3,9 +3,9 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
-  const id = searchParams.get("imageId");
-  if (id) {
-    const imageProduct = await getImageProductById("ImageBatik", id);
+  const imageId = searchParams.get("imageId");
+  if (imageId) {
+    const imageProduct = await getImageProductById("ImageBatik", imageId);
     if (imageProduct) {
       return NextResponse.json({
         status: 200,
